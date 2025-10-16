@@ -19,6 +19,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                cd go-app
                 echo "Building application..."
                 sh '''
                 # Example for a Go app — adjust for your stack

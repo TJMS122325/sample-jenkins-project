@@ -9,6 +9,7 @@ Git Plugin	https://plugins.jenkins.io/git/
 HTTP Request	https://plugins.jenkins.io/http_request/	
 Jacked	https://plugins.jenkins.io/jacked/	
 Bitbucket Push and Pull Request Plugin	https://plugins.jenkins.io/bitbucket-push-and-pull-request/	
+Go Plugin
 		
 		
 		
