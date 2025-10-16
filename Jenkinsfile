@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Change these values
         APP_NAME = "my-app"
-        DOCKERHUB_USER = "your_dockerhub_username"
+        DOCKERHUB_USER = "TJMS122325"
         IMAGE_NAME = "${DOCKERHUB_USER}/${APP_NAME}:latest"
         GIT_REPO = "https://github.com/TJMS122325/sample-jenkins-project.git"
     }
