@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        // Change these values
+        // Customize for your project
         APP_NAME = "my-app"
         DOCKERHUB_USER = "TJMS122325"
         IMAGE_NAME = "${DOCKERHUB_USER}/${APP_NAME}:latest"
@@ -12,35 +12,37 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo "Checking out code from GitHub..."
+                echo "📥 Checking out code from GitHub..."
                 git branch: 'main', url: "${GIT_REPO}"
             }
         }
 
         stage('Build') {
             steps {
-                cd go-app
-                echo "Building application..."
-                sh '''
-                # Example for a Go app — adjust for your stack
-                go mod tidy
-                go build -o ${APP_NAME}
-                '''
+                echo "🔧 Building Go application..."
+                dir('go-app') {   // ✅ replaces 'cd go-app'
+                    sh '''
+                    go mod tidy
+                    go build -o ${APP_NAME}
+                    '''
+                }
             }
         }
 
         stage('Test') {
             steps {
-                echo "Running tests..."
-                sh '''
-                go test ./... -v
-                '''
+                echo "🧪 Running Go tests..."
+                dir('go-app') {
+                    sh '''
+                    go test ./... -v
+                    '''
+                }
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                echo "Building Docker image..."
+                echo "🐳 Building Docker image..."
                 sh '''
                 docker build -t ${IMAGE_NAME} .
                 '''
@@ -49,7 +51,7 @@ pipeline {
 
         stage('Push to Docker Hub') {
             steps {
-                echo "Pushing Docker image to Docker Hub..."
+                echo "📤 Pushing Docker image to Docker Hub..."
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                     sh '''
                     echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
