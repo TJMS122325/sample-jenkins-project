@@ -1,0 +1,16 @@
+Jenkins Plugin	Links	
+		
+Kubernetes	https://plugins.jenkins.io/kubernetes/	
+Matrix	https://plugins.jenkins.io/matrix-auth/	
+Stage view	https://plugins.jenkins.io/pipeline-stage-view/	
+Build with Parameters	https://plugins.jenkins.io/build-with-parameters/	
+Google chat webhook	https://plugins.jenkins.io/google-chat-notification/	
+Git Plugin	https://plugins.jenkins.io/git/	
+HTTP Request	https://plugins.jenkins.io/http_request/	
+Jacked	https://plugins.jenkins.io/jacked/	
+Bitbucket Push and Pull Request Plugin	https://plugins.jenkins.io/bitbucket-push-and-pull-request/	
+		
+		
+		
+		
+		
